@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 
 
 import router from "./routes/routes.js";
+import todoRoutes from "./routes/todoRoutes.js";
 
 dotenv.config()
 const app = express();
@@ -20,6 +21,7 @@ mongoose.connect(process.env.DB_CONNECT, {
 
 // sever listen
 app.use("/ui/users", router)
+app.use("/user/todo", todoRoutes)
 app.listen(3000, () => console.log('sever running at http://localhost:3000/'))
 
 
